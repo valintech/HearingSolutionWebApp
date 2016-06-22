@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/KioskMessageTypes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/KioskMessageTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="TransactionMessageWrap">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressLine1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Age" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ended" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="KioskId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Postcode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Started" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Test1Answer1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Test1Answer2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Test1Answer3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Test1Answer4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Test1Answer5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Test1Score" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Test2Answer1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Test2Answer2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Test2Answer3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Test2Answer4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Test2Answer5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Test2Answer6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Test2Answer7" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Test2Answer8" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Test2Score" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Test3Answer1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Test3Answer2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Test3Answer3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Test3Answer4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Test3Answer5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Test3Score" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalScore" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="isSent" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="isSuccessful" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionMessageWrap" nillable="true" type="tns:TransactionMessageWrap" />
+  <xs:complexType name="HeartbeatMessageWrap">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HeartbeatTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="KioskId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaperStatus" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HeartbeatMessageWrap" nillable="true" type="tns:HeartbeatMessageWrap" />
+</xs:schema>

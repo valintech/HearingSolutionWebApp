@@ -1,0 +1,87 @@
+﻿
+<div>
+    Kiosk View
+    <div ng-controller="kiosksController">
+        <div class="alert alert-info">
+            <p>Is Loading data: {{ kioskConnection.loading }}</p>
+        </div>
+        <div>
+            <form editable-form name="addKioskForm" onbeforesave="validateNewKiosk($data)" onaftersave="addKiosk($data)">
+                <!-- button to show form -->
+                <button type="button" class="btn btn-default" ng-click="showAddKioskForm(this)" ng-show="!addKioskForm.$visible">
+                    Add New Kiosk
+                </button>
+                <div class="addFormContent" ng-show="addKioskForm.$visible">
+                    <div>
+                        <span class="title">Kiosk Name: </span>
+                        <span editable-text="newKiosk.KioskDisplayName" e-name="KioskDisplayName" e-required>{{ newKiosk.KioskDisplayName }}</span>
+                    </div>
+                    <div>
+                        <span class="title">Kiosk Location: </span>
+                        <span editable-text="newKiosk.LocationName" e-name="LocationName">{{ newKiosk.LocationName }}</span>
+                    </div>
+                    <div>
+                        <span class="title">Kiosk Owner: </span>
+                        <span editable-select="newKiosk.OwnerId" e-name="OwnerId" e-ng-options="user.Id as user.CompanyName for user in userConnection.users">
+                            {{ newKiosk.CompanyName }}
+                        </span>
+                    </div>
+                    <div class="buttons">
+                        <!-- buttons to submit / cancel form -->
+                        <span>
+                            <button type="submit" class="btn btn-primary" ng-disabled="addKioskForm.$waiting">
+                                Save
+                            </button>
+                            <button type="button" class="btn btn-default" ng-disabled="addKioskForm.$waiting" ng-click="addKioskForm.$cancel()">
+                                Cancel
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <table class="table" ng-if="!kioskConnection.loading">
+            <thead>
+                <tr>
+                    <td>
+                        <a href="" ng-click="sortType = 'Id'; sortReverse = !sortReverse">
+                            Id
+                            <span ng-show="sortType == 'Id' && !sortReverse" class="fa fa-caret-down"></span>
+                            <span ng-show="sortType == 'Id' && sortReverse" class="fa fa-caret-up"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="" ng-click="sortType = 'KioskDisplayName'; sortReverse = !sortReverse">
+                            Kiosk
+                            <span ng-show="sortType == 'KioskDisplayName' && !sortReverse" class="fa fa-caret-down"></span>
+                            <span ng-show="sortType == 'KioskDisplayName' && sortReverse" class="fa fa-caret-up"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="" ng-click="sortType = 'CompanyName'; sortReverse = !sortReverse">
+                            Company Name
+                            <span ng-show="sortType == 'CompanyName' && !sortReverse" class="fa fa-caret-down"></span>
+                            <span ng-show="sortType == 'CompanyName' && sortReverse" class="fa fa-caret-up"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="" ng-click="sortType = 'LocationName'; sortReverse = !sortReverse">
+                            Location Name
+                            <span ng-show="sortType == 'LocationName' && !sortReverse" class="fa fa-caret-down"></span>
+                            <span ng-show="sortType == 'LocationName' && sortReverse" class="fa fa-caret-up"></span>
+                        </a>
+                    </td>
+                    <td>
+                        Is Updating
+                    </td>
+                    <td>
+                        Update Failed
+                    </td>
+                </tr>
+            </thead>
+            <tbody class="kioskRow" ng-repeat="kiosk in kioskConnection.kiosks | sortFilter: sortType: sortReverse | pageFilter: (currentPage - 1) * pageSize | limitTo: pageSize" ng-include="'pages/KioskRow.html'" >
+             </tbody>
+        </table>
+        <uib-pagination total-items="kioskConnection.kiosks.length" items-per-page="pageSize" ng-model="currentPage" max-size="10" class="pagination-sm"></uib-pagination>
+     </div>
+</div>

@@ -1,0 +1,61 @@
+﻿<tr ng-click="isOpen=!isOpen">
+    <td>
+        {{kiosk.Id}}
+    </td>
+    <td>
+        {{kiosk.KioskDisplayName}}
+    </td>
+    <td>
+        {{kiosk.CompanyName}}
+    </td>
+    <td>
+        {{kiosk.LocationName}}
+    </td>
+    <td>
+        {{kiosk.IsUpdating}}
+    </td>
+    <td>
+        {{kiosk.UpdateFailed}}
+    </td>
+</tr>
+<tr ng-if="isOpen">
+    <td class="expandedLine kioskDetails">
+        <form editable-form name="editableForm" onaftersave="kioskChanged(kiosk)">
+            <div>
+                <span class="title">Kiosk Name: </span>
+                <span editable-text="kiosk.KioskDisplayName" e-name="KioskDisplayName" e-required>{{kiosk.KioskDisplayName}}</span>
+            </div>
+
+            <div>
+                <span class="title">Kiosk Location: </span>
+                <span editable-text="kiosk.LocationName" e-name="LocationName">{{kiosk.LocationName}}</span>
+            </div>
+
+            <div>
+                <span class="title">Kiosk Owner: </span>
+                <span editable-select="kiosk.OwnerId" e-name="OwnerId" e-ng-options="user.Id as user.CompanyName for user in userConnection.users">
+                    {{ kiosk.CompanyName }}
+                </span>
+            </div>
+
+            <div class="buttons">
+                <!-- button to show form -->
+                <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+                    Edit
+                </button>
+                <!-- buttons to submit / cancel form -->
+                <span ng-show="editableForm.$visible">
+                    <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+                        Save
+                    </button>
+                    <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+                        Cancel
+                    </button>
+                </span>
+            </div>
+        </form>
+        <button type="button" class="btn btn-default" ng-click="deleteKiosk(kiosk)">
+            <span class="glyphicon glyphicon-remove-circle"></span>Delete Kiosk
+        </button>
+    </td>
+</tr>

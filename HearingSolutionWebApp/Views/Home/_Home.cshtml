@@ -1,0 +1,22 @@
+﻿<link href="@Url.Content("~/Content/simple-sidebar.css")" rel="stylesheet" type="text/css"/>
+<div ng-app="app">
+    <div ng-controller="MainController">
+        <div id="SideMenu">
+            <div id="wrapper">
+
+                <!-- Sidebar -->
+                <div id="sidebar-wrapper">
+                    <ul class="sidebar-nav">
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#transactions">Transactions</a></li>
+                        <li><a href="#kiosks">Kiosks</a></li>
+                        <li><a href="#users">Users</a></li>
+                    </ul>
+                    </div>
+                </div>
+                </div>
+                <div id="MainArea">
+                    <div ng-view></div>
+                </div>
+            </div>
+        </div>

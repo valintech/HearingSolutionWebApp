@@ -1,0 +1,1011 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Hometown" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsAdministrator" Type="bit" />
+          <Property Name="AgreedToTandCs" Type="bit" />
+          <Property Name="DateDeleted" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TimeStamp" Type="datetime2" Precision="7" />
+          <Property Name="CommentText" Type="nvarchar(max)" />
+          <Property Name="Transactions_Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatorName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Kiosk">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="KioskID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StoreContact" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="128" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="25" />
+          <Property Name="Address" Type="nvarchar" MaxLength="128" />
+          <Property Name="DateDeleted" Type="datetime2" Precision="7" />
+          <Property Name="KioskType" Type="nvarchar" MaxLength="50" />
+          <Property Name="KioskDisplayName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KioskHeartbeats">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="HeartbeatTime" Type="datetime2" Precision="7" />
+          <Property Name="PaperStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kiosk_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KioskLocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartDate" Type="datetime2" Precision="7" />
+          <Property Name="EndDate" Type="datetime2" Precision="7" />
+          <Property Name="Kiosk_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KioskOwnership">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OwnershipStart" Type="datetime2" Precision="7" />
+          <Property Name="OwnershipEnd" Type="datetime2" Precision="7" />
+          <Property Name="AspNetUsers_Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Kiosk_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TransactionFolders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="128" />
+          <Property Name="AspNetUsers_Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdressLine1" Type="nvarchar" MaxLength="128" />
+          <Property Name="AdressLine2" Type="nvarchar" MaxLength="128" />
+          <Property Name="AdressLine3" Type="nvarchar" MaxLength="128" />
+          <Property Name="Postcode" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="128" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="Age" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsRead" Type="bit" />
+          <Property Name="DateTaken" Type="datetime2" Precision="7" />
+          <Property Name="DateDeleted" Type="datetime2" Precision="7" />
+          <Property Name="DateUploaded" Type="datetime2" Precision="7" />
+          <Property Name="SectionOneScore" Type="int" />
+          <Property Name="SectionTwoScore" Type="int" />
+          <Property Name="SectionThreeScore" Type="int" />
+          <Property Name="TotalScore" Type="int" />
+          <Property Name="TestOneQ1" Type="nvarchar" MaxLength="50" />
+          <Property Name="TestOneQ2" Type="nvarchar" MaxLength="50" />
+          <Property Name="TestOneQ3" Type="nvarchar" MaxLength="50" />
+          <Property Name="TestOneQ4" Type="nvarchar" MaxLength="50" />
+          <Property Name="TestOneQ5" Type="nvarchar" MaxLength="50" />
+          <Property Name="TestTwoQ1" Type="nvarchar" MaxLength="50" />
+          <Property Name="TestTwoQ2" Type="nvarchar" MaxLength="50" />
+          <Property Name="TestTwoQ3" Type="nvarchar" MaxLength="50" />
+          <Property Name="TestTwoQ4" Type="nvarchar" MaxLength="50" />
+          <Property Name="TestTwoQ5" Type="nvarchar" MaxLength="50" />
+          <Property Name="TestTwoQ6" Type="nvarchar" MaxLength="50" />
+          <Property Name="TestTwoQ7" Type="nvarchar" MaxLength="50" />
+          <Property Name="TestTwoQ8" Type="nvarchar" MaxLength="50" />
+          <Property Name="TestThreeQ1" Type="nvarchar" MaxLength="50" />
+          <Property Name="TestThreeQ2" Type="nvarchar" MaxLength="50" />
+          <Property Name="TestThreeQ3" Type="nvarchar" MaxLength="50" />
+          <Property Name="TestThreeQ4" Type="nvarchar" MaxLength="50" />
+          <Property Name="TestThreeQ5" Type="nvarchar" MaxLength="50" />
+          <Property Name="TimeTaken" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TransactionFolders_Id" Type="uniqueidentifier" />
+          <Property Name="KioskOwnership_Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsSuccessful" Type="bit" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Comments_dbo_Transactions_Id">
+          <End Role="Transactions" Type="Self.Transactions" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transactions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="Transactions_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_KioskHeartbeats_dbo_Kiosk_Id">
+          <End Role="Kiosk" Type="Self.Kiosk" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="KioskHeartbeats" Type="Self.KioskHeartbeats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kiosk">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KioskHeartbeats">
+              <PropertyRef Name="Kiosk_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_KioskLocation_dbo_Kiosk_Id">
+          <End Role="Kiosk" Type="Self.Kiosk" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="KioskLocation" Type="Self.KioskLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kiosk">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KioskLocation">
+              <PropertyRef Name="Kiosk_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_KioskOwnership_dbo_AspNetUsers_Id">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="KioskOwnership" Type="Self.KioskOwnership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KioskOwnership">
+              <PropertyRef Name="AspNetUsers_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_KioskOwnership_dbo_Kiosk_Id">
+          <End Role="Kiosk" Type="Self.Kiosk" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="KioskOwnership" Type="Self.KioskOwnership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kiosk">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KioskOwnership">
+              <PropertyRef Name="Kiosk_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TransactionFolders_dbo_AspNetUsers_Id">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TransactionFolders" Type="Self.TransactionFolders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TransactionFolders">
+              <PropertyRef Name="AspNetUsers_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Transactions_dbo_KioskOwnership_Id">
+          <End Role="KioskOwnership" Type="Self.KioskOwnership" Multiplicity="1" />
+          <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KioskOwnership">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="KioskOwnership_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Transactions_dbo_TransactionFolders_Id">
+          <End Role="TransactionFolders" Type="Self.TransactionFolders" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionFolders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="TransactionFolders_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kiosk" EntityType="Self.Kiosk" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KioskHeartbeats" EntityType="Self.KioskHeartbeats" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KioskLocation" EntityType="Self.KioskLocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KioskOwnership" EntityType="Self.KioskOwnership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionFolders" EntityType="Self.TransactionFolders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Comments_dbo_Transactions_Id" Association="Self.FK_dbo_Comments_dbo_Transactions_Id">
+            <End Role="Transactions" EntitySet="Transactions" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_KioskHeartbeats_dbo_Kiosk_Id" Association="Self.FK_dbo_KioskHeartbeats_dbo_Kiosk_Id">
+            <End Role="Kiosk" EntitySet="Kiosk" />
+            <End Role="KioskHeartbeats" EntitySet="KioskHeartbeats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_KioskLocation_dbo_Kiosk_Id" Association="Self.FK_dbo_KioskLocation_dbo_Kiosk_Id">
+            <End Role="Kiosk" EntitySet="Kiosk" />
+            <End Role="KioskLocation" EntitySet="KioskLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_KioskOwnership_dbo_AspNetUsers_Id" Association="Self.FK_dbo_KioskOwnership_dbo_AspNetUsers_Id">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="KioskOwnership" EntitySet="KioskOwnership" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_KioskOwnership_dbo_Kiosk_Id" Association="Self.FK_dbo_KioskOwnership_dbo_Kiosk_Id">
+            <End Role="Kiosk" EntitySet="Kiosk" />
+            <End Role="KioskOwnership" EntitySet="KioskOwnership" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TransactionFolders_dbo_AspNetUsers_Id" Association="Self.FK_dbo_TransactionFolders_dbo_AspNetUsers_Id">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="TransactionFolders" EntitySet="TransactionFolders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Transactions_dbo_KioskOwnership_Id" Association="Self.FK_dbo_Transactions_dbo_KioskOwnership_Id">
+            <End Role="KioskOwnership" EntitySet="KioskOwnership" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Transactions_dbo_TransactionFolders_Id" Association="Self.FK_dbo_Transactions_dbo_TransactionFolders_Id">
+            <End Role="TransactionFolders" EntitySet="TransactionFolders" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Model.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Model.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Model.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Model.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Model.AspNetUser" />
+          <EntitySet Name="Comments" EntityType="Model.Comment" />
+          <EntitySet Name="Kiosks" EntityType="Model.Kiosk" />
+          <EntitySet Name="KioskHeartbeats" EntityType="Model.KioskHeartbeat" />
+          <EntitySet Name="KioskLocations" EntityType="Model.KioskLocation" />
+          <EntitySet Name="KioskOwnerships" EntityType="Model.KioskOwnership" />
+          <EntitySet Name="TransactionFolders" EntityType="Model.TransactionFolder" />
+          <EntitySet Name="Transactions" EntityType="Model.Transaction" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_KioskOwnership_dbo_AspNetUsers_Id" Association="Model.FK_dbo_KioskOwnership_dbo_AspNetUsers_Id">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="KioskOwnership" EntitySet="KioskOwnerships" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TransactionFolders_dbo_AspNetUsers_Id" Association="Model.FK_dbo_TransactionFolders_dbo_AspNetUsers_Id">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="TransactionFolder" EntitySet="TransactionFolders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Comments_dbo_Transactions_Id" Association="Model.FK_dbo_Comments_dbo_Transactions_Id">
+            <End Role="Transaction" EntitySet="Transactions" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_KioskHeartbeats_dbo_Kiosk_Id" Association="Model.FK_dbo_KioskHeartbeats_dbo_Kiosk_Id">
+            <End Role="Kiosk" EntitySet="Kiosks" />
+            <End Role="KioskHeartbeat" EntitySet="KioskHeartbeats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_KioskLocation_dbo_Kiosk_Id" Association="Model.FK_dbo_KioskLocation_dbo_Kiosk_Id">
+            <End Role="Kiosk" EntitySet="Kiosks" />
+            <End Role="KioskLocation" EntitySet="KioskLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_KioskOwnership_dbo_Kiosk_Id" Association="Model.FK_dbo_KioskOwnership_dbo_Kiosk_Id">
+            <End Role="Kiosk" EntitySet="Kiosks" />
+            <End Role="KioskOwnership" EntitySet="KioskOwnerships" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Transactions_dbo_KioskOwnership_Id" Association="Model.FK_dbo_Transactions_dbo_KioskOwnership_Id">
+            <End Role="KioskOwnership" EntitySet="KioskOwnerships" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Transactions_dbo_TransactionFolders_Id" Association="Model.FK_dbo_Transactions_dbo_TransactionFolders_Id">
+            <End Role="TransactionFolder" EntitySet="TransactionFolders" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Model.AspNetUserRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Model.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Hometown" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ContactName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsAdministrator" Type="Boolean" />
+          <Property Name="AgreedToTandCs" Type="Boolean" />
+          <Property Name="DateDeleted" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="KioskOwnerships" Relationship="Model.FK_dbo_KioskOwnership_dbo_AspNetUsers_Id" FromRole="AspNetUser" ToRole="KioskOwnership" />
+          <NavigationProperty Name="TransactionFolders" Relationship="Model.FK_dbo_TransactionFolders_dbo_AspNetUsers_Id" FromRole="AspNetUser" ToRole="TransactionFolder" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Model.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="TimeStamp" Type="DateTime" Precision="7" />
+          <Property Name="CommentText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Transactions_Id" Type="Guid" Nullable="false" />
+          <Property Name="CreatorName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Transaction" Relationship="Model.FK_dbo_Comments_dbo_Transactions_Id" FromRole="Comment" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="Kiosk">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KioskID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StoreContact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DateDeleted" Type="DateTime" Precision="7" />
+          <Property Name="KioskType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KioskDisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="KioskHeartbeats" Relationship="Model.FK_dbo_KioskHeartbeats_dbo_Kiosk_Id" FromRole="Kiosk" ToRole="KioskHeartbeat" />
+          <NavigationProperty Name="KioskLocations" Relationship="Model.FK_dbo_KioskLocation_dbo_Kiosk_Id" FromRole="Kiosk" ToRole="KioskLocation" />
+          <NavigationProperty Name="KioskOwnerships" Relationship="Model.FK_dbo_KioskOwnership_dbo_Kiosk_Id" FromRole="Kiosk" ToRole="KioskOwnership" />
+        </EntityType>
+        <EntityType Name="KioskHeartbeat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HeartbeatTime" Type="DateTime" Precision="7" />
+          <Property Name="PaperStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kiosk_Id" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Kiosk" Relationship="Model.FK_dbo_KioskHeartbeats_dbo_Kiosk_Id" FromRole="KioskHeartbeat" ToRole="Kiosk" />
+        </EntityType>
+        <EntityType Name="KioskLocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="7" />
+          <Property Name="EndDate" Type="DateTime" Precision="7" />
+          <Property Name="Kiosk_Id" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Kiosk" Relationship="Model.FK_dbo_KioskLocation_dbo_Kiosk_Id" FromRole="KioskLocation" ToRole="Kiosk" />
+        </EntityType>
+        <EntityType Name="KioskOwnership">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OwnershipStart" Type="DateTime" Precision="7" />
+          <Property Name="OwnershipEnd" Type="DateTime" Precision="7" />
+          <Property Name="AspNetUsers_Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Kiosk_Id" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Model.FK_dbo_KioskOwnership_dbo_AspNetUsers_Id" FromRole="KioskOwnership" ToRole="AspNetUser" />
+          <NavigationProperty Name="Kiosk" Relationship="Model.FK_dbo_KioskOwnership_dbo_Kiosk_Id" FromRole="KioskOwnership" ToRole="Kiosk" />
+          <NavigationProperty Name="Transactions" Relationship="Model.FK_dbo_Transactions_dbo_KioskOwnership_Id" FromRole="KioskOwnership" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="TransactionFolder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DisplayName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="AspNetUsers_Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Model.FK_dbo_TransactionFolders_dbo_AspNetUsers_Id" FromRole="TransactionFolder" ToRole="AspNetUser" />
+          <NavigationProperty Name="Transactions" Relationship="Model.FK_dbo_Transactions_dbo_TransactionFolders_Id" FromRole="TransactionFolder" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdressLine1" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="AdressLine2" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="AdressLine3" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Postcode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsRead" Type="Boolean" />
+          <Property Name="DateTaken" Type="DateTime" Precision="7" />
+          <Property Name="DateDeleted" Type="DateTime" Precision="7" />
+          <Property Name="DateUploaded" Type="DateTime" Precision="7" />
+          <Property Name="SectionOneScore" Type="Int32" />
+          <Property Name="SectionTwoScore" Type="Int32" />
+          <Property Name="SectionThreeScore" Type="Int32" />
+          <Property Name="TotalScore" Type="Int32" />
+          <Property Name="TestOneQ1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TestOneQ2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TestOneQ3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TestOneQ4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TestOneQ5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TestTwoQ1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TestTwoQ2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TestTwoQ3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TestTwoQ4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TestTwoQ5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TestTwoQ6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TestTwoQ7" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TestTwoQ8" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TestThreeQ1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TestThreeQ2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TestThreeQ3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TestThreeQ4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TestThreeQ5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TimeTaken" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TransactionFolders_Id" Type="Guid" />
+          <Property Name="KioskOwnership_Id" Type="Guid" Nullable="false" />
+          <Property Name="IsSuccessful" Type="Boolean" />
+          <NavigationProperty Name="Comments" Relationship="Model.FK_dbo_Comments_dbo_Transactions_Id" FromRole="Transaction" ToRole="Comment" />
+          <NavigationProperty Name="KioskOwnership" Relationship="Model.FK_dbo_Transactions_dbo_KioskOwnership_Id" FromRole="Transaction" ToRole="KioskOwnership" />
+          <NavigationProperty Name="TransactionFolder" Relationship="Model.FK_dbo_Transactions_dbo_TransactionFolders_Id" FromRole="Transaction" ToRole="TransactionFolder" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_KioskOwnership_dbo_AspNetUsers_Id">
+          <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model.KioskOwnership" Role="KioskOwnership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KioskOwnership">
+              <PropertyRef Name="AspNetUsers_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TransactionFolders_dbo_AspNetUsers_Id">
+          <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model.TransactionFolder" Role="TransactionFolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TransactionFolder">
+              <PropertyRef Name="AspNetUsers_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Comments_dbo_Transactions_Id">
+          <End Type="Model.Transaction" Role="Transaction" Multiplicity="1" />
+          <End Type="Model.Comment" Role="Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transaction">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="Transactions_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_KioskHeartbeats_dbo_Kiosk_Id">
+          <End Type="Model.Kiosk" Role="Kiosk" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model.KioskHeartbeat" Role="KioskHeartbeat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kiosk">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KioskHeartbeat">
+              <PropertyRef Name="Kiosk_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_KioskLocation_dbo_Kiosk_Id">
+          <End Type="Model.Kiosk" Role="Kiosk" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model.KioskLocation" Role="KioskLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kiosk">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KioskLocation">
+              <PropertyRef Name="Kiosk_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_KioskOwnership_dbo_Kiosk_Id">
+          <End Type="Model.Kiosk" Role="Kiosk" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model.KioskOwnership" Role="KioskOwnership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kiosk">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KioskOwnership">
+              <PropertyRef Name="Kiosk_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Transactions_dbo_KioskOwnership_Id">
+          <End Type="Model.KioskOwnership" Role="KioskOwnership" Multiplicity="1" />
+          <End Type="Model.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KioskOwnership">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="KioskOwnership_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Transactions_dbo_TransactionFolders_Id">
+          <End Type="Model.TransactionFolder" Role="TransactionFolder" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionFolder">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="TransactionFolders_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+          <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="Model.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="Model.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="Model.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="Model.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="Model.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+                <ScalarProperty Name="AgreedToTandCs" ColumnName="AgreedToTandCs" />
+                <ScalarProperty Name="IsAdministrator" ColumnName="IsAdministrator" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Hometown" ColumnName="Hometown" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="Model.Comment">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="CreatorName" ColumnName="CreatorName" />
+                <ScalarProperty Name="Transactions_Id" ColumnName="Transactions_Id" />
+                <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kiosks">
+            <EntityTypeMapping TypeName="Model.Kiosk">
+              <MappingFragment StoreEntitySet="Kiosk">
+                <ScalarProperty Name="KioskDisplayName" ColumnName="KioskDisplayName" />
+                <ScalarProperty Name="KioskType" ColumnName="KioskType" />
+                <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="StoreContact" ColumnName="StoreContact" />
+                <ScalarProperty Name="KioskID" ColumnName="KioskID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KioskHeartbeats">
+            <EntityTypeMapping TypeName="Model.KioskHeartbeat">
+              <MappingFragment StoreEntitySet="KioskHeartbeats">
+                <ScalarProperty Name="Kiosk_Id" ColumnName="Kiosk_Id" />
+                <ScalarProperty Name="PaperStatus" ColumnName="PaperStatus" />
+                <ScalarProperty Name="HeartbeatTime" ColumnName="HeartbeatTime" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KioskLocations">
+            <EntityTypeMapping TypeName="Model.KioskLocation">
+              <MappingFragment StoreEntitySet="KioskLocation">
+                <ScalarProperty Name="Kiosk_Id" ColumnName="Kiosk_Id" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KioskOwnerships">
+            <EntityTypeMapping TypeName="Model.KioskOwnership">
+              <MappingFragment StoreEntitySet="KioskOwnership">
+                <ScalarProperty Name="Kiosk_Id" ColumnName="Kiosk_Id" />
+                <ScalarProperty Name="AspNetUsers_Id" ColumnName="AspNetUsers_Id" />
+                <ScalarProperty Name="OwnershipEnd" ColumnName="OwnershipEnd" />
+                <ScalarProperty Name="OwnershipStart" ColumnName="OwnershipStart" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionFolders">
+            <EntityTypeMapping TypeName="Model.TransactionFolder">
+              <MappingFragment StoreEntitySet="TransactionFolders">
+                <ScalarProperty Name="AspNetUsers_Id" ColumnName="AspNetUsers_Id" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="Model.Transaction">
+              <MappingFragment StoreEntitySet="Transactions">
+                <ScalarProperty Name="IsSuccessful" ColumnName="IsSuccessful" />
+                <ScalarProperty Name="KioskOwnership_Id" ColumnName="KioskOwnership_Id" />
+                <ScalarProperty Name="TransactionFolders_Id" ColumnName="TransactionFolders_Id" />
+                <ScalarProperty Name="TimeTaken" ColumnName="TimeTaken" />
+                <ScalarProperty Name="TestThreeQ5" ColumnName="TestThreeQ5" />
+                <ScalarProperty Name="TestThreeQ4" ColumnName="TestThreeQ4" />
+                <ScalarProperty Name="TestThreeQ3" ColumnName="TestThreeQ3" />
+                <ScalarProperty Name="TestThreeQ2" ColumnName="TestThreeQ2" />
+                <ScalarProperty Name="TestThreeQ1" ColumnName="TestThreeQ1" />
+                <ScalarProperty Name="TestTwoQ8" ColumnName="TestTwoQ8" />
+                <ScalarProperty Name="TestTwoQ7" ColumnName="TestTwoQ7" />
+                <ScalarProperty Name="TestTwoQ6" ColumnName="TestTwoQ6" />
+                <ScalarProperty Name="TestTwoQ5" ColumnName="TestTwoQ5" />
+                <ScalarProperty Name="TestTwoQ4" ColumnName="TestTwoQ4" />
+                <ScalarProperty Name="TestTwoQ3" ColumnName="TestTwoQ3" />
+                <ScalarProperty Name="TestTwoQ2" ColumnName="TestTwoQ2" />
+                <ScalarProperty Name="TestTwoQ1" ColumnName="TestTwoQ1" />
+                <ScalarProperty Name="TestOneQ5" ColumnName="TestOneQ5" />
+                <ScalarProperty Name="TestOneQ4" ColumnName="TestOneQ4" />
+                <ScalarProperty Name="TestOneQ3" ColumnName="TestOneQ3" />
+                <ScalarProperty Name="TestOneQ2" ColumnName="TestOneQ2" />
+                <ScalarProperty Name="TestOneQ1" ColumnName="TestOneQ1" />
+                <ScalarProperty Name="TotalScore" ColumnName="TotalScore" />
+                <ScalarProperty Name="SectionThreeScore" ColumnName="SectionThreeScore" />
+                <ScalarProperty Name="SectionTwoScore" ColumnName="SectionTwoScore" />
+                <ScalarProperty Name="SectionOneScore" ColumnName="SectionOneScore" />
+                <ScalarProperty Name="DateUploaded" ColumnName="DateUploaded" />
+                <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+                <ScalarProperty Name="DateTaken" ColumnName="DateTaken" />
+                <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="AdressLine3" ColumnName="AdressLine3" />
+                <ScalarProperty Name="AdressLine2" ColumnName="AdressLine2" />
+                <ScalarProperty Name="AdressLine1" ColumnName="AdressLine1" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUser">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRole">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

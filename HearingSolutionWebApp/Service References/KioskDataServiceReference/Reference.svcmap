@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="99a16b58-7150-422a-b7bc-080ba3ee451f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52666/Services/KioskDataService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="KioskDataService.xsd" MetadataType="Schema" ID="e9d92f80-cf4c-48cb-a328-48916493dc15" SourceId="1" SourceUrl="http://localhost:52666/Services/KioskDataService.svc?xsd=xsd0" />
+    <MetadataFile FileName="KioskDataService1.xsd" MetadataType="Schema" ID="5984ed90-66ab-4a28-98f2-8a6efcc606ad" SourceId="1" SourceUrl="http://localhost:52666/Services/KioskDataService.svc?xsd=xsd2" />
+    <MetadataFile FileName="KioskDataService2.xsd" MetadataType="Schema" ID="6ccb29b8-5043-4e20-b22a-0d12a6b70116" SourceId="1" SourceUrl="http://localhost:52666/Services/KioskDataService.svc?xsd=xsd1" />
+    <MetadataFile FileName="KioskDataService.wsdl" MetadataType="Wsdl" ID="f07dec6f-066a-4e0d-8fa5-1e1f638a309f" SourceId="1" SourceUrl="http://localhost:52666/Services/KioskDataService.svc?wsdl" />
+    <MetadataFile FileName="KioskDataService.disco" MetadataType="Disco" ID="bf0563d2-bf5b-43c4-8b40-194a9691cf66" SourceId="1" SourceUrl="http://localhost:52666/Services/KioskDataService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

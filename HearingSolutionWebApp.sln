@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HearingSolutionWebApp", "HearingSolutionWebApp\HearingSolutionWebApp.csproj", "{2B0061AB-A2ED-4D02-97BB-98B7D5071C67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KioskMessageTypes", "KioskMessageTypes\KioskMessageTypes.csproj", "{7E6E9C2B-7A21-43EB-A0B0-E112180A76FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B0061AB-A2ED-4D02-97BB-98B7D5071C67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B0061AB-A2ED-4D02-97BB-98B7D5071C67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B0061AB-A2ED-4D02-97BB-98B7D5071C67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B0061AB-A2ED-4D02-97BB-98B7D5071C67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E6E9C2B-7A21-43EB-A0B0-E112180A76FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E6E9C2B-7A21-43EB-A0B0-E112180A76FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E6E9C2B-7A21-43EB-A0B0-E112180A76FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E6E9C2B-7A21-43EB-A0B0-E112180A76FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://192.168.0.72:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = HearingSolutionWebApp\\HearingSolutionWebApp.csproj
+		SccProjectName1 = HearingSolutionWebApp
+		SccLocalPath1 = HearingSolutionWebApp
+		SccProjectUniqueName2 = KioskMessageTypes\\KioskMessageTypes.csproj
+		SccProjectName2 = KioskMessageTypes
+		SccLocalPath2 = KioskMessageTypes
+	EndGlobalSection
+EndGlobal
